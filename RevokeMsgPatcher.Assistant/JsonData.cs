@@ -17,7 +17,7 @@ namespace RevokeMsgPatcher
             {
                 Apps = AppConfig(),
                 LatestVersion = "2.1",
-                PatchVersion = 20260814,
+                PatchVersion = 20260817,
                 Notice = "",
                 NoticeUrl = "",
             };
@@ -1493,10 +1493,11 @@ namespace RevokeMsgPatcher
                                         Replace = ByteUtil.HexStringToByteArray("90 48 29 86 48 02 00 00 4C 89 AD 08 02 00 00 4C 8D 05"),
                                         Category = "防撤回"
                                     },
+                                    // 4.1.12.x 存在两处 ERROR_ALREADY_EXISTS(0xB7) 判断，长特征只命中 1 处会导致多开仍失败
                                     new ReplacePattern
                                     {
-                                        Search = ByteUtil.HexStringToByteArray("89 C7 B9 02 00 00 00 E8 3F 3F 3F 3F 81 FF B7 00 00 00 0F 85"),
-                                        Replace = ByteUtil.HexStringToByteArray("89 C7 B9 02 00 00 00 E8 3F 3F 3F 3F 81 FF B7 00 00 00 90 E9"),
+                                        Search = ByteUtil.HexStringToByteArray("81 FF B7 00 00 00 0F 85"),
+                                        Replace = ByteUtil.HexStringToByteArray("81 FF B7 00 00 00 90 E9"),
                                         Category = "多开"
                                     }
                                 }
@@ -1505,7 +1506,7 @@ namespace RevokeMsgPatcher
                             {
                                 Name="Weixin.dll",
                                 StartVersion="4.1.12.0",
-                                EndVersion="4.1.12.55",
+                                EndVersion="4.1.12.54",
                                 ReplacePatterns = new List<ReplacePattern>
                                 {
                                     new ReplacePattern
@@ -1516,8 +1517,8 @@ namespace RevokeMsgPatcher
                                     },
                                     new ReplacePattern
                                     {
-                                        Search = ByteUtil.HexStringToByteArray("89 C7 B9 02 00 00 00 E8 3F 3F 3F 3F 81 FF B7 00 00 00 0F 85"),
-                                        Replace = ByteUtil.HexStringToByteArray("89 C7 B9 02 00 00 00 E8 3F 3F 3F 3F 81 FF B7 00 00 00 90 E9"),
+                                        Search = ByteUtil.HexStringToByteArray("81 FF B7 00 00 00 0F 85"),
+                                        Replace = ByteUtil.HexStringToByteArray("81 FF B7 00 00 00 90 E9"),
                                         Category = "多开"
                                     }
                                 }

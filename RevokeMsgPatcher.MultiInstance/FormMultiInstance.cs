@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace RevokeMsgPatcher.MultiInstance
 {
     public partial class FormMultiInstance : Form
     {
+        private static readonly string[] WechatProcessNames = { "WeChat", "Weixin" };
+
         public FormMultiInstance()
         {
             InitializeComponent();
@@ -18,6 +21,15 @@ namespace RevokeMsgPatcher.MultiInstance
                 currentVersion = " v" + currentVersion.Substring(0, 3);
             }
             this.Text += currentVersion;
+        }
+
+        private static Process[] GetWechatProcesses()
+        {
+            return WechatProcessNames
+                .SelectMany(name => Process.GetProcessesByName(name))
+                .GroupBy(p => p.Id)
+                .Select(g => g.First())
+                .ToArray();
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -43,8 +55,8 @@ namespace RevokeMsgPatcher.MultiInstance
 
         private void mutexHandleCloseTimer_Tick(object sender, EventArgs e)
         {
-            Process[] processes = Process.GetProcessesByName("WeChat");
-            Console.WriteLine("WeChat进程数：" + processes.Length);
+            Process[] processes = GetWechatProcesses();
+            Console.WriteLine("微信进程数：" + processes.Length);
             // 添加新进程
             foreach (Process p in processes)
             {
@@ -91,7 +103,7 @@ namespace RevokeMsgPatcher.MultiInstance
 
         private void btnKillAll_Click(object sender, EventArgs e)
         {
-            Process[] processes = Process.GetProcessesByName("WeChat");
+            Process[] processes = GetWechatProcesses();
             if (processes.Length > 0)
             {
                 foreach (Process p in processes)
@@ -108,7 +120,7 @@ namespace RevokeMsgPatcher.MultiInstance
 
         private void btnCloseAllMutex_Click(object sender, EventArgs e)
         {
-            Process[] processes = Process.GetProcessesByName("WeChat");
+            Process[] processes = GetWechatProcesses();
             ProcessUtil.CloseMutexHandle(processes);
         }
 

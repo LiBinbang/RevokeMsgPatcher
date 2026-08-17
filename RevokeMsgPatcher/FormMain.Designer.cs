@@ -50,6 +50,7 @@
             this.特征码防撤回强制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.手动输入补丁信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.通用微信多开工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.revokeHook带提示防撤回ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.支持版本ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.常见问题ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -246,7 +247,8 @@
             this.高级ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.特征码防撤回强制ToolStripMenuItem,
             this.手动输入补丁信息ToolStripMenuItem,
-            this.通用微信多开工具ToolStripMenuItem});
+            this.通用微信多开工具ToolStripMenuItem,
+            this.revokeHook带提示防撤回ToolStripMenuItem});
             this.高级ToolStripMenuItem.Name = "高级ToolStripMenuItem";
             this.高级ToolStripMenuItem.Size = new System.Drawing.Size(44, 22);
             this.高级ToolStripMenuItem.Text = "高级";
@@ -254,7 +256,7 @@
             // 特征码防撤回强制ToolStripMenuItem
             // 
             this.特征码防撤回强制ToolStripMenuItem.Name = "特征码防撤回强制ToolStripMenuItem";
-            this.特征码防撤回强制ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.特征码防撤回强制ToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.特征码防撤回强制ToolStripMenuItem.Text = "特征码防撤回（强制）";
             this.特征码防撤回强制ToolStripMenuItem.Visible = false;
             this.特征码防撤回强制ToolStripMenuItem.Click += new System.EventHandler(this.特征码防撤回强制ToolStripMenuItem_Click);
@@ -262,7 +264,7 @@
             // 手动输入补丁信息ToolStripMenuItem
             // 
             this.手动输入补丁信息ToolStripMenuItem.Name = "手动输入补丁信息ToolStripMenuItem";
-            this.手动输入补丁信息ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.手动输入补丁信息ToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.手动输入补丁信息ToolStripMenuItem.Text = "手动输入补丁信息";
             this.手动输入补丁信息ToolStripMenuItem.Visible = false;
             this.手动输入补丁信息ToolStripMenuItem.Click += new System.EventHandler(this.手动输入补丁信息ToolStripMenuItem_Click);
@@ -270,9 +272,16 @@
             // 通用微信多开工具ToolStripMenuItem
             // 
             this.通用微信多开工具ToolStripMenuItem.Name = "通用微信多开工具ToolStripMenuItem";
-            this.通用微信多开工具ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.通用微信多开工具ToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.通用微信多开工具ToolStripMenuItem.Text = "通用微信多开工具";
             this.通用微信多开工具ToolStripMenuItem.Click += new System.EventHandler(this.通用微信多开工具ToolStripMenuItem_Click);
+            // 
+            // revokeHook带提示防撤回ToolStripMenuItem
+            // 
+            this.revokeHook带提示防撤回ToolStripMenuItem.Name = "revokeHook带提示防撤回ToolStripMenuItem";
+            this.revokeHook带提示防撤回ToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.revokeHook带提示防撤回ToolStripMenuItem.Text = "RevokeHook 带提示防撤回";
+            this.revokeHook带提示防撤回ToolStripMenuItem.Click += new System.EventHandler(this.revokeHook带提示防撤回ToolStripMenuItem_Click);
             // 
             // 帮助ToolStripMenuItem
             // 
@@ -466,6 +475,7 @@
         private System.Windows.Forms.ToolStripMenuItem 手动输入补丁信息ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 特征码防撤回强制ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 通用微信多开工具ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem revokeHook带提示防撤回ToolStripMenuItem;
         private System.Windows.Forms.Label lblCategory;
         private System.Windows.Forms.FlowLayoutPanel panelCategories;
         private System.Windows.Forms.ToolTip toolTip1;

@@ -34,6 +34,7 @@ namespace RevokeMsgPatcher
         Bag bag = null;
 
         FormLiteLoaderQQNT formLiteLoader = null;
+        FormRevokeHook formRevokeHook = null;
 
         public void InitModifier()
         {
@@ -559,6 +560,40 @@ namespace RevokeMsgPatcher
                     Process.Start(
                         "https://github.com/huiyadanli/RevokeMsgPatcher/tree/master/RevokeMsgPatcher.MultiInstance");
                 }
+            }
+        }
+
+        private void revokeHook带提示防撤回ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowOrFocusFormRevokeHook();
+        }
+
+        private void ShowOrFocusFormRevokeHook()
+        {
+            string weixinPath = null;
+            if (rbtWeixin != null && rbtWeixin.Checked)
+            {
+                weixinPath = txtPath.Text;
+            }
+            else if (weixinModifier != null)
+            {
+                weixinPath = weixinModifier.FindInstallPath();
+            }
+
+            if (formRevokeHook == null || formRevokeHook.IsDisposed)
+            {
+                formRevokeHook = new FormRevokeHook(weixinPath);
+                formRevokeHook.Show();
+            }
+            else
+            {
+                formRevokeHook.SetWeixinPath(weixinPath);
+                if (formRevokeHook.WindowState == FormWindowState.Minimized)
+                {
+                    formRevokeHook.WindowState = FormWindowState.Normal;
+                }
+                formRevokeHook.BringToFront();
+                formRevokeHook.Focus();
             }
         }
 
